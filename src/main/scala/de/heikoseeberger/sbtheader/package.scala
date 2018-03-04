@@ -20,6 +20,7 @@ import java.io.File
 import scala.util.matching.Regex
 
 package object sbtheader {
+  type Logger = String => Unit
 
   type Traversable[+A] = scala.collection.immutable.Traversable[A]
   type Iterable[+A]    = scala.collection.immutable.Iterable[A]
@@ -39,4 +40,11 @@ package object sbtheader {
   }
 
   val newLine: String = System.lineSeparator()
+
+  def commentBetween(start: String, middle: String, end: String): Regex =
+    raw"""(?s)($start(?!\$middle).*?$end(?:\n|\r|\r\n)+)(.*)""".r
+
+  def commentStartingWith(start: String): Regex =
+    raw"""(?s)((?:$start[^\n\r]*(?:\n|\r|\r\n))*(?:$start[^\n\r]*(?:(?:\n){2,}|(?:\r){2,}|(?:\r\n){2,})+))(.*)""".r
+
 }

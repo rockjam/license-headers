@@ -16,10 +16,6 @@
 
 package de.heikoseeberger.sbtheader
 
-import de.heikoseeberger.sbtheader.HeaderPlugin.autoImport.HeaderPattern.{
-  commentBetween,
-  commentStartingWith
-}
 import scala.util.matching.Regex
 
 /**

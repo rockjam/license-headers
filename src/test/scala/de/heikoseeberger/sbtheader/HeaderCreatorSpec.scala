@@ -18,15 +18,12 @@ package de.heikoseeberger.sbtheader
 
 import java.io.ByteArrayInputStream
 
+import CommentStyle.hashLineComment
+import License.Custom
 import org.scalatest.{ Matchers, WordSpec }
-import sbt.Logger
-import de.heikoseeberger.sbtheader.HeaderPlugin.autoImport.HeaderCommentStyle.hashLineComment
-import de.heikoseeberger.sbtheader.HeaderPlugin.autoImport.HeaderLicense.Custom
 
 final class StubLogger extends Logger {
-  override def log(level: sbt.Level.Value, message: => String) = ()
-  override def success(message: => String)                     = ()
-  override def trace(t: => Throwable)                          = ()
+  def apply(v1: String): Unit = ()
 }
 
 final class HeaderCreatorSpec extends WordSpec with Matchers {

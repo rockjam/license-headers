@@ -1,9 +1,0 @@
-/*
- * This is a custom License.
- *
- * It has an empty line and a second line with Text.
- */
-
-package de.heikoseeberger.sbtheader.test;
-
-class HasHeader

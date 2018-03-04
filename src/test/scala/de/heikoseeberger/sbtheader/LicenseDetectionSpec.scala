@@ -16,40 +16,26 @@
 
 package de.heikoseeberger.sbtheader
 
-import de.heikoseeberger.sbtheader.HeaderPlugin.autoImport.HeaderLicense._
+import de.heikoseeberger.sbtheader.License._
 import org.scalatest.{ Matchers, WordSpec }
-import sbt.URL
 
 class LicenseDetectionSpec extends WordSpec with Matchers {
 
   val organizationName = "Heiko Seeberger"
   val yyyy             = 2017
   val startYear        = Some(yyyy)
-  val apache           = ("Apache-2.0", new URL("https://spdx.org/licenses/Apache-2.0.html#licenseText"))
-  val mit              = ("MIT", new URL("https://spdx.org/licenses/MIT.html#licenseText"))
+  val apache           = "Apache-2.0"
+  val mit              = "MIT"
 
   val licenses = Map(
-    BSD2Clause(yyyy.toString, organizationName) -> ("BSD-2-Clause", new URL(
-      "https://spdx.org/licenses/BSD-2-Clause.html#licenseText"
-    )),
-    BSD3Clause(yyyy.toString, organizationName) -> ("BSD-3-Clause", new URL(
-      "https://spdx.org/licenses/BSD-3-Clause.html#licenseText"
-    )),
-    AGPLv3(yyyy.toString, organizationName) -> ("AGPL-3.0", new URL(
-      "https://spdx.org/licenses/AGPL-3.0.html#licenseText"
-    )),
-    ALv2(yyyy.toString, organizationName) ->
-    apache,
-    GPLv3(yyyy.toString, organizationName) -> ("GPL-3.0", new URL(
-      "https://spdx.org/licenses/GPL-3.0.html#licenseText"
-    )),
-    LGPLv3(yyyy.toString, organizationName) -> ("LGPL-3.0", new URL(
-      "https://spdx.org/licenses/LGPL-3.0.html#licenseText"
-    )),
-    MIT(yyyy.toString, organizationName) -> mit,
-    MPLv2(yyyy.toString, organizationName) -> ("MPL-2.0", new URL(
-      "https://spdx.org/licenses/MPL-2.0.html#licenseText"
-    ))
+    BSD2Clause(yyyy.toString, organizationName) -> "BSD-2-Clause",
+    BSD3Clause(yyyy.toString, organizationName) -> "BSD-3-Clause",
+    AGPLv3(yyyy.toString, organizationName)     -> "AGPL-3.0",
+    ALv2(yyyy.toString, organizationName)       -> apache,
+    GPLv3(yyyy.toString, organizationName)      -> "GPL-3.0",
+    LGPLv3(yyyy.toString, organizationName)     -> "LGPL-3.0",
+    MIT(yyyy.toString, organizationName)        -> mit,
+    MPLv2(yyyy.toString, organizationName)      -> "MPL-2.0"
   )
 
   "LicenseDetection" should {

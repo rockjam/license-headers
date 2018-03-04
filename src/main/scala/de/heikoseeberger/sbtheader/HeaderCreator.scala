@@ -17,7 +17,6 @@
 package de.heikoseeberger.sbtheader
 
 import java.io.InputStream
-import sbt.Logger
 import scala.io.Codec
 
 object HeaderCreator {
@@ -56,8 +55,8 @@ final class HeaderCreator private (fileType: FileType,
     }
   }
 
-  log.debug(s"First line of file is:$newLine$firstLine")
-  log.debug(s"Text of file is:$newLine$text")
+  log(s"First line of file is:$newLine$firstLine")
+  log(s"Text of file is:$newLine$text")
 
   private val fileNewLine =
     text match {
@@ -87,7 +86,7 @@ final class HeaderCreator private (fileType: FileType,
       case body =>
         Some(firstLine + newHeaderText(None) + body.replaceAll("""^\s+""", "")) // Trim left
     }
-  log.debug(s"Modified text of file is:$newLine$modifiedText")
+  log(s"Modified text of file is:$newLine$modifiedText")
 
   def createText: Option[String] =
     modifiedText

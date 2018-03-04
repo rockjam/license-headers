@@ -7,5 +7,4 @@ jdk:
   - oraclejdk8
 
 script:
-  - sbt ^test
-  - sbt ^scripted
+  - mill licenseHeaders.test

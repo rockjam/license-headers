@@ -16,7 +16,7 @@
 
 package de.heikoseeberger.sbtheader
 
-import de.heikoseeberger.sbtheader.HeaderPlugin.autoImport.HeaderLicense._
+import de.heikoseeberger.sbtheader.License._
 import org.scalatest.{ Matchers, WordSpec }
 
 class LicenseSpec extends WordSpec with Matchers {
